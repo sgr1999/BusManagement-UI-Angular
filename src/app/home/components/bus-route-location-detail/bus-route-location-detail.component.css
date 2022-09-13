@@ -1,0 +1,71 @@
+.container{
+   width: 1200px;
+   margin: auto;
+   margin-top: 30px;
+}
+
+.headding{
+   background-color: #a6d5fa73; 
+   height:40px; 
+   margin: -32px -16px 25px -16px;
+   border-radius: 4px;
+   padding: 0;
+}
+
+.dropFieldWidth1{
+   width: 340px;
+   font-size: small;
+}
+.dropFieldWidth{
+   width: 140px;
+   font-size: small;
+}
+
+.grid{
+   margin-left: 218px;
+}
+
+table {
+   width: 100%;
+ }
+
+ .mat-form-field{
+    text-align: center;
+ }
+
+.demo-table {
+   width: 100%;
+ }
+
+ .span_style{
+    color: red;
+ }
+ 
+ .mat-row .mat-cell {
+   border-bottom: 1px solid transparent;
+   border-top: 1px solid transparent;
+   cursor: pointer;
+ }
+ 
+ .mat-row:hover .mat-cell {
+   border-color: currentColor;
+ }
+ 
+ .demo-row-is-clicked {
+   font-weight: bold;
+ }
+ 
+
+ .input-symbol-euro {
+   position: relative;
+}
+.input-symbol-euro input {
+   padding-left:18px;
+}
+.input-symbol-euro:before {
+   position: absolute;
+   top: 0;
+   content:"€";
+   left: 5px;
+}
+

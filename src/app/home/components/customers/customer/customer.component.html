@@ -1,0 +1,154 @@
+
+<div class="container">
+    <p-card  class="card" *ngIf="customer==null">
+
+        <h1 class="heading">Add customer</h1>
+
+    <form (ngSubmit)="doSubmitForm()">
+    
+        <td>
+    <mat-form-field *ngIf="customer==null" class="field" appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input name="firstName" [(ngModel)]="data.firstName" matInput>
+</mat-form-field>
+
+    </td>
+    <td class="formFields">
+        
+        <mat-form-field *ngIf="customer==null" class="field ml-4" appearance="outline">
+    <mat-label >Last Name</mat-label>
+    <input name="lastName" [(ngModel)]="data.lastName" matInput>
+</mat-form-field>
+
+</td>
+<tr></tr>
+    <td>
+        
+        <mat-form-field *ngIf="customer==null" class="field" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input type="email" name="userName" [(ngModel)]="data.userName"  matInput>
+</mat-form-field>
+
+    </td>
+    <td class="formFields">
+    
+        <mat-form-field *ngIf="customer==null" class="field ml-4" appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input name="mobileNumber" [(ngModel)]="data.mobileNumber" matInput>
+        </mat-form-field>
+    
+    </td>
+    <tr></tr>
+    <td>
+        <mat-form-field *ngIf="customer==null" class="field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input name="password" [(ngModel)]="data.password" matInput>
+        </mat-form-field>
+        
+</td>
+    <td class="formFields">
+        <mat-form-field *ngIf="customer==null" class="field ml-4" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input name="age" [(ngModel)]="data.age" matInput>
+            </mat-form-field>
+    </td>
+    
+    <tr></tr>
+
+    
+<mat-form-field appearance="fill" *ngIf="customer==null">
+    <mat-label>Select Gender</mat-label>
+    <mat-select [(ngModel)]="data.gender" name="gender">
+        <mat-option *ngFor="let gen of genders" [value]="gen.value">
+          {{gen.viewValue}}
+        </mat-option>
+      </mat-select>
+</mat-form-field>
+
+<div class="btn">
+    <mat-spinner *ngIf="flag" style="margin:auto;"></mat-spinner>
+    <td>
+        <button type="submit" mat-raised-button color="primary">Add</button>
+    </td>
+    <td style="padding-left: 30px;">
+    <button type="reset" mat-raised-button color="accent">Clear</button>
+    </td>
+    </div>
+    
+    </form>
+    
+</p-card>
+
+<p-card  class="card" *ngIf="customer!=null">
+
+<h1 class="heading">Update customer</h1>
+<form (ngSubmit)="doSubmitForm()">
+
+    <td>
+
+<mat-form-field *ngIf="customer!=null" class="field" appearance="outline">
+<mat-label>First Name</mat-label>
+<input name="firstName"[(ngModel)]="customer.firstName"  matInput>
+</mat-form-field>
+</td>
+<td class="formFields">
+    
+
+<mat-form-field *ngIf="customer!=null" class="field ml-4" appearance="outline">
+<mat-label>Last Name</mat-label>
+<input name="lastName" [(ngModel)]="customer.lastName" matInput>
+</mat-form-field>
+</td>
+<tr></tr>
+<td>
+    
+
+<mat-form-field *ngIf="customer!=null" class="field" appearance="outline">
+<mat-label>Email</mat-label>
+<input type="email" disabled="userName" name="userName" [(ngModel)]="customer.userName" matInput>
+</mat-form-field>
+</td>
+<td class="formFields">
+
+
+<mat-form-field *ngIf="customer!=null" class="field ml-4" appearance="outline">
+<mat-label>Mobile Number</mat-label>
+<input name="mobileNumber" [(ngModel)]="customer.mobileNumber" matInput>
+</mat-form-field>
+</td>
+<tr></tr>
+<td>
+
+<mat-form-field *ngIf="customer!=null" class="field" appearance="outline">
+    <mat-label>Age</mat-label>
+    <input name="age" [(ngModel)]="customer.age" matInput>
+</mat-form-field>
+</td>
+
+
+<td>
+    <mat-form-field class="ml-4" appearance="fill" *ngIf="customer!=null">
+        <mat-label>Select Gender</mat-label>
+        <mat-select [(ngModel)]="customer.gender" name="gender">
+            <mat-option *ngFor="let gen of genders" [value]="gen.value">
+              {{gen.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+</td>
+
+<div class="btn">
+<!-- <mat-spinner  style="margin:auto;"></mat-spinner> -->
+<td>
+    <button type="submit" mat-raised-button color="primary">Add</button>
+</td>
+<td style="padding-left: 30px;">
+<button type="reset" mat-raised-button color="accent">Clear</button>
+</td>
+</div>
+
+</form>
+
+</p-card>
+    </div>
+    

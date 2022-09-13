@@ -1,0 +1,61 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Payment</h3>
+     </div>
+ 
+     <form >
+ 
+       <div class="grid grid1">
+         
+             <div>
+               <!-- <label class="col-fixed" style="width: 110px;"><span style="color: red;">*</span>State Name:</label> -->
+               <mat-form-field class="dropFieldWidth" appearance="outline">
+                 <mat-label style="font-size: 13.8px;">Net Banking</mat-label>
+                 <mat-select name="netBanking" [(ngModel)]="netBanking" (selectionChange)="netBankingSelector($any($event).value)">
+                   <mat-option *ngFor="let net of netBankings" [value]="net.value">{{net.value}}</mat-option>
+                 </mat-select>
+               </mat-form-field>
+             </div>
+         
+        </div>
+
+        <div class="grid grid1">
+         
+         <div>
+           <!-- <label class="col-fixed" style="width: 110px;"><span style="color: red;">*</span>State Name:</label> -->
+           <mat-form-field class="dropFieldWidth" appearance="outline">
+             <mat-label style="font-size: 13.8px;">Cards</mat-label>
+             <mat-select name="card" [(ngModel)]="card" (selectionChange)="cardSelector($any($event).value)">
+               <mat-option *ngFor="let card of cards" [value]="card.value">{{card.value}}</mat-option>
+             </mat-select>
+           </mat-form-field>
+         </div>
+     
+    </div>
+
+    <div class="grid grid1">
+         
+      <div>
+        <!-- <label class="col-fixed" style="width: 110px;"><span style="color: red;">*</span>State Name:</label> -->
+        <mat-form-field class="dropFieldWidth" appearance="outline">
+          <mat-label style="font-size: 13.8px;">Upi</mat-label>
+          <mat-select name="upi" [(ngModel)]="upi" (selectionChange)="upiSelector($any($event).value)">
+            <mat-option *ngFor="let upi of upis" [value]="upi.value">{{upi.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+ </div>
+ 
+            <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+       
+       <div class="mt-3" style="margin-left: 450px;">
+         <button type="submit" mat-raised-button color="primary"  (click)="submitPayment()">Pay</button>
+         <button type="reset" class="ml-4" mat-raised-button color="warn" routerLink="/home/errorPage">Cancle</button>
+       </div>
+     </form>
+     </p-card>
+   </div>
+ 

@@ -1,0 +1,273 @@
+<div class="container">
+  <!-- <mat-drawer-container> -->
+
+  <!-- <mat-drawer  [opened]="sideBarOpen"> -->
+
+  <div class="stateDiv grid">
+    <button mat-icon-button (click)="toggleState()">
+      <mat-icon *ngIf="!sideBarOpen">arrow_downward</mat-icon>
+      <mat-icon *ngIf="sideBarOpen">arrow_upward</mat-icon>
+    </button>
+    <h3 style="margin-top: 8px">State</h3>
+  </div>
+  <p-card class="card" *ngIf="sideBarOpen">
+    <form (ngSubmit)="submitState()">
+      <div class="formgrid grid">
+        <div class="grid">
+          <div class="field grid">
+            <label
+              for="firstname3"
+              class="col-fixed"
+              style="width: 110px; padding-left: 11.3px"
+              ><span style="color: red">*</span> State Name</label
+            >
+            <div class="col">
+              <input
+                id="firstname3"
+                name="stateName"
+                [(ngModel)]="state.stateName"
+                type="text"
+                class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+              />
+            </div>
+          </div>
+
+          <div class="field grid ml-3">
+            <label
+              for="firstname3"
+              class="col-fixed"
+              style="width: 105px; padding-left: 12px"
+              ><span style="color: red">*</span>State Code</label
+            >
+            <div class="col">
+              <input
+                id="firstname3"
+                name="stateCode"
+                [(ngModel)]="state.stateCode"
+                type="text"
+                class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="field mt-2" style="margin-left: 285px">
+          <button type="submit" class="ml-2" mat-raised-button color="primary">
+            Save
+          </button>
+          <button type="reset" class="ml-3" mat-raised-button color="warn">
+            Cancle
+          </button>
+        </div>
+      </div>
+    </form>
+  </p-card>
+
+  <div class="stateDiv grid mt-2">
+    <button mat-icon-button (click)="toggleDistrict()">
+      <mat-icon *ngIf="!districtSideBarOpen">arrow_downward</mat-icon>
+      <mat-icon *ngIf="districtSideBarOpen">arrow_upward</mat-icon>
+    </button>
+    <h3 style="margin-top: 8px">District</h3>
+  </div>
+
+  <p-card class="card" *ngIf="districtSideBarOpen">
+    <form (ngSubmit)="submitDistrict()">
+      <div class="districtField grid">
+        <label
+          for="firstname3"
+          class="col-fixed"
+          style="width: 112px; padding-left: 13.4px; padding-top: 26px"
+          ><span style="color: red">*</span>State Name</label
+        >
+        <div class="col">
+          <mat-form-field
+
+          
+            appearance="fill"
+            class="DropFieldWidth"
+            aria-required="true"    
+          >
+            <mat-label>State</mat-label>
+            <mat-select
+              name="dStateName"
+              [(ngModel)]="dStateName"
+              (selectionChange)="stateSelection1($any($event).value)"
+            >
+              <mat-option *ngFor="let s of states" [value]="s.stateName">{{
+                s.stateName
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="districtField grid">
+        <div class="field grid">
+          <label
+            for="firstname3"
+            class="col-fixed"
+            style="width: 120px; padding-left: 7.4px"
+            ><span style="color: red">*</span>District Name</label
+          >
+          <div class="col">
+            <input
+              id="firstname3"
+              name="districtName"
+              [(ngModel)]="district.districtName"
+              type="text"
+              class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+            />
+          </div>
+        </div>
+
+        <div class="field grid ml-2">
+          <label
+            for="firstname3"
+            class="col-fixed"
+            style="width: 122px; padding-left: 15.3px"
+            ><span style="color: red">*</span>District Code</label
+          >
+          <div class="col">
+            <input
+              id="firstname3"
+              name="districtCode"
+              [(ngModel)]="district.districtCode"
+              type="text"
+              class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="field mt-2" style="margin-left: 420px">
+        <button
+          type="submit"
+          class="my-1 ml-2"
+          mat-raised-button
+          color="primary"
+        >
+          Save
+        </button>
+        <button type="reset" class="ml-3" mat-raised-button color="warn">
+          Cancle
+        </button>
+      </div>
+    </form>
+  </p-card>
+  <div class="stateDiv grid mt-2">
+    <button mat-icon-button (click)="toggleCity()">
+      <mat-icon *ngIf="!citySideBarOpen">arrow_downward</mat-icon>
+      <mat-icon *ngIf="citySideBarOpen">arrow_upward</mat-icon>
+    </button>
+    <h3 style="margin-top: 8px">City</h3>
+  </div>
+
+  <p-card class="card" *ngIf="citySideBarOpen">
+    <form (ngSubmit)="submitCity()">
+      <div class="districtField grid">
+        <div class="field grid">
+          <label
+            for="firstname3"
+            class="col-fixed"
+            style="width: 110px; padding-left: 11.4px; padding-bottom: 15px"
+            ><span style="color: red">*</span>State Name</label
+          >
+          <div class="col">
+            <mat-form-field class="DropFieldWidth" appearance="fill">
+              <mat-label style="padding-top: -2px">State</mat-label>
+              <mat-select
+                name="cStateName"
+                [(ngModel)]="cStateName"
+                (selectionChange)="stateSelection($any($event).value)"
+              >
+                <mat-option *ngFor="let s of states" [value]="s.stateName">{{
+                  s.stateName
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="field grid ml-3">
+          <label
+            for="firstname3"
+            class="col-fixed"
+            style="width: 121px; padding-left: 8.8px"
+            ><span style="color: red">*</span>District Name</label
+          >
+          <div class="col">
+            <mat-form-field appearance="fill" class="DropFieldWidth">
+              <mat-label>District</mat-label>
+              <mat-select
+                name="cDistrictName"
+                [(ngModel)]="cDistrictName"
+                (selectionChange)="districtSelection($any($event).value)"
+              >
+                <mat-option
+                  *ngFor="let dist of districts"
+                  [value]="dist.districtName"
+                  >{{ dist.districtName }}</mat-option
+                >
+              </mat-select>
+
+              <mat-error *ngIf="district.districtName">
+                District is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="districtField grid">
+        <div class="field grid">
+          <label
+            for="statename"
+            class="col-fixed"
+            style="width: 110px; padding-left: 20.4px"
+            ><span style="color: red">*</span>City Name</label
+          >
+          <div class="col">
+            <input
+              type="text"
+              name="cityName"
+              [(ngModel)]="city.cityName"
+              class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+            />
+          </div>
+        </div>
+
+        <div class="field grid ml-3">
+          <label
+            for="statename"
+            class="col-fixed"
+            style="width: 121px; padding-left: 36.8px"
+            ><span style="color: red">*</span>City Code</label
+          >
+          <div class="col">
+            <input
+              type="number"
+              name="cityCode"
+              [(ngModel)]="city.cityCode"
+              class="inputFieldSize text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="field mt-2" style="margin-left: 420px">
+        <button
+          type="submit"
+          class="my-1 ml-2"
+          mat-raised-button
+          color="primary"
+        >
+          Save
+        </button>
+        <button type="reset" class="ml-3" mat-raised-button color="warn">
+          Cancle
+        </button>
+      </div>
+    </form>
+  </p-card>
+</div>

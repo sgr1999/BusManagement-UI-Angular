@@ -1,0 +1,102 @@
+<div class="listcontainer">
+
+    <p-table #dt [value]="customers" [(selection)]="selectedCustomers" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0" [globalFilterFields]="['customerId','firstName','mobileNumber','userName','gender','age']">
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            List of Customers
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Search" />
+            </span>
+        </div>
+    </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th style="width: 3rem"></th> -->
+                        <th pSortableColumn="customerId">Id <p-sortIcon field="customerId"></p-sortIcon></th>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="mobileNumber">Mobile Number <p-sortIcon field="mobileNumber"></p-sortIcon></th>
+                        <th pSortableColumn="userName">Email <p-sortIcon field="userName.name"></p-sortIcon></th>
+                        <th pSortableColumn="gender">Gender <p-sortIcon field="gender"></p-sortIcon></th>
+                        <th pSortableColumn="age">Age <p-sortIcon field="age"></p-sortIcon></th>
+                        <th pSortableColumn="action" style="padding-left: 44px;">Action <p-sortIcon field="action"></p-sortIcon></th>
+                        <th style="width: 8rem"></th>
+                    </tr>
+                
+                </ng-template>
+                <ng-template pTemplate="body" let-customer>
+                    <tr>
+                     
+                        <td>
+                            <span class="p-column-title">Id </span>
+                            {{customer.customerId}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Name </span>
+                            {{customer.firstName+"  "+customer.lastName}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Mobile Number</span>
+                            <span class="image-text">{{customer.mobileNumber}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Email</span>
+                            <span class="image-text">{{customer.userName}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Gender</span>
+                            {{customer.gender}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Age</span>
+                          {{customer.age}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Action</span>
+                            <!-- <button pButton pRipple label="" class="btns p-button-danger" icon="pi pi-trash" (click)="deleteCustomer(customer.customerId)"></button>
+                            <button routerLink="/addCustomer" pButton pRipple label="" icon="pi pi-pencil" (click)="updateCustomer(customer,customer.customerId)"></button> -->
+                           <tr>
+                               <td>
+
+                                   <div class="example-button-container">
+                                       <button mat-fab color="primary" routerLink="/home/addCustomer" (click)="updateCustomer(customer,customer.customerId)" aria-label="Example icon button with a delete icon">
+                                         <mat-icon>edit</mat-icon>
+                                       </button>
+                                     </div>
+                               </td>
+                               <td>
+
+                                   <div class="example-button-container">
+                                     <button mat-fab color="primary" (click)="deleteCustomer(customer.customerId)" aria-label="Example icon button with a update icon">
+                                       <mat-icon>delete</mat-icon>
+                                     </button>
+                                   </div>
+                               </td>
+                           </tr>
+
+                           
+                           
+
+                           
+                          
+                                  
+                        </td>
+                    
+                    </tr>
+                
+                </ng-template>
+                   
+                
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8">No customers found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+</div>
+
+

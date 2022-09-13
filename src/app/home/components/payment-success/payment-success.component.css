@@ -1,0 +1,15 @@
+.container{
+   width: 600px;
+   margin: auto;
+   margin-top: 40px;
+   text-align: center;
+}
+
+.img{
+   width: 150px;
+   height: 150px;
+}
+
+.matCard{
+   background: #f96464;
+}

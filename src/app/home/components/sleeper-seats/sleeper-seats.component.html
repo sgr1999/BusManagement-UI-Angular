@@ -1,0 +1,99 @@
+<div class="container grid">
+
+   <div class="submitButton">
+      <button mat-raised-button color="primary" *ngIf="selectSeat" routerLink="/home/passengerDetail" (click)="submitSeat()">Book</button>
+      <button mat-raised-button *ngIf="!selectSeat" (click)="submitSeat()">Book</button>
+   </div>
+   <div >
+     <mat-card class="matCard">
+       <div style="text-align: center">
+         <h3>Lower Deck</h3>
+       </div>
+ 
+       <hr />
+       <div class="grid" >
+        
+          <div *ngFor="let n of noOfSeatsLower ; index as i">
+            
+
+               <div class="seat" *ngIf="(n.value=='4L' || n.value=='10L' || n.value=='16L' || n.value=='22L' || n.value=='28L') && n.value!=seatNoLower[i] && n.value!=seatsNumberLowerList[i]" style="margin-left: 50px;" (click)="getSeatNoLower(n.value)">
+                  <div class="seatPillow"></div>
+               </div>
+               <div class="seat" *ngIf="(n.value=='4L' || n.value=='10L' || n.value=='16L' || n.value=='22L' || n.value=='28L') && n.value==seatNoLower[i] && n.value!=seatsNumberLowerList[i]" style="margin-left: 50px; background: #008000ad;" (click)="getSeatNoLower(n.value)">
+                  <div class="seatPillow"></div>
+               </div> 
+               <div class="seat" *ngIf="(n.value=='4L' || n.value=='10L' || n.value=='16L' || n.value=='22L' || n.value=='28L') && n.value==seatsNumberLowerList[i]" style="margin-left: 50px; background: #8080808a;">
+                  <div class="seatPillow"></div>
+               </div>  
+
+                <div class="seat" *ngIf="(n.value!='4L' && n.value!='10L' && n.value!='16L' && n.value!='22L' && n.value!='28L') && n.value!=seatNoLower[i] && n.value!=seatsNumberLowerList[i]"  (click)="getSeatNoLower(n.value)">
+                  <div class="seatPillow"></div>
+               </div> 
+               <div class="seat" *ngIf="(n.value!='4L' && n.value!='10L' && n.value!='16L' && n.value!='22L' && n.value!='28L') && n.value==seatNoLower[i] && n.value!=seatsNumberLowerList[i]" style="background: #008000ad;" (click)="getSeatNoLower(n.value)">
+                  <div class="seatPillow"></div>
+               </div> 
+               <div class="seat" *ngIf="(n.value!='4L' && n.value!='10L' && n.value!='16L' && n.value!='22L' && n.value!='28L') && n.value==seatsNumberLowerList[i]" style="background: #8080808a;">
+                  <div class="seatPillow"></div>
+               </div> 
+            </div>
+         
+       </div>
+     </mat-card>
+   </div>
+ 
+   <div>
+     <mat-card class="matCard">
+       <div style="text-align: center">
+         <h3>Upper Deck</h3>
+       </div>
+ 
+       <hr />
+       <div class="grid">
+        
+         <div *ngFor="let n of noOfSeatsUpper ; index as i">
+
+            <div class="seat" *ngIf="(n.value=='1U' || n.value=='7U' || n.value=='13U' || n.value=='19U' || n.value=='25U') && n.value!=seatNoUpper[i] && n.value!=seatsNumberUpperList[i]" style="margin-left: 50px;" (click)="getSeatNoUpper(n.value)">
+               <div class="seatPillow"></div>
+            </div>  
+
+            <div class="seat" *ngIf="(n.value=='1U' || n.value=='7U' || n.value=='13U' || n.value=='19U' || n.value=='25U') && n.value==seatNoUpper[i] && n.value!=seatsNumberUpperList[i]" style="margin-left: 50px; background: #008000ad;" (click)="getSeatNoUpper(n.value)">
+               <div class="seatPillow"></div>
+            </div> 
+            
+            <div class="seat" *ngIf="(n.value=='1U' || n.value=='7U' || n.value=='13U' || n.value=='19U' || n.value=='25U') && n.value==seatsNumberUpperList[i]" style="margin-left: 50px; background: #8080808a;">
+               <div class="seatPillow"></div>
+            </div> 
+
+             <div class="seat" *ngIf="(n.value!='1U' && n.value!='7U' && n.value!='13U' && n.value!='19U' && n.value!='25U') && n.value!=seatNoUpper[i] && n.value!=seatsNumberUpperList[i]" (click)="getSeatNoUpper(n.value)">
+               <div class="seatPillow"></div>
+            </div> 
+            <div class="seat" *ngIf="(n.value!='1U' && n.value!='7U' && n.value!='13U' && n.value!='19U' && n.value!='25U') && n.value==seatNoUpper[i] && n.value!=seatsNumberUpperList[i]" style="background: #008000ad;" (click)="getSeatNoUpper(n.value)">
+               <div class="seatPillow"></div>
+            </div>  
+            <div class="seat" *ngIf="(n.value!='1U' && n.value!='7U' && n.value!='13U' && n.value!='19U' && n.value!='25U') && n.value==seatsNumberUpperList[i]" style="background: #8080808a;">
+               <div class="seatPillow"></div>
+            </div>  
+         </div>
+       </div>
+     </mat-card>
+   </div>
+
+   <mat-card class="showSeats grid" *ngIf="checkSeat">
+      <div *ngFor="let s of bookedSeats">
+
+        <p class="grid">{{s}}</p> 
+      </div>
+   </mat-card>
+
+   <mat-card class="showSeats1" *ngIf="checkSeat">
+      <div>
+         <h3>Fare {{busDetail.fareRs * bookedSeats.length}}</h3>
+      </div>
+   
+   </mat-card>
+ </div>
+ 
+
+
+
+ 

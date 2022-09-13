@@ -1,0 +1,174 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Passenger Info</h3>
+     </div>
+ 
+        <div class="ml-5" style="margin-bottom: -15px; ">
+
+       
+         <div class="grid">
+
+            <div class="lable_width" >
+             <label for="" >Route:</label>
+            </div>
+            <div>
+               <label for="" style="width: 100px ;">{{busDetail.sourceCity+" To "+busDetail.destinationCity+" | "+travelingDate}}</label>
+            </div>
+         </div>
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Boarding Stop:</label>
+            </div>
+            <div>
+               <label for="" >{{busDetail.sourceCity+"  "+busDetail.departureTime}}</label>
+            </div>
+         </div>
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Alighting Stop:</label>
+            </div>
+            <div>
+               <label for="" >{{busDetail.destinationCity+"  "+busDetail.arrivalTime}}</label>
+            </div>
+         </div>
+
+         
+         <div class="grid mt-2">
+            
+            <div class="lable_width">
+               <label for="" >Fare Rs:</label>
+            </div>
+            <div>
+               <label *ngIf="fareRs==0" for="" >{{busDetail.fareRs}}</label> 
+               <label *ngIf="fareRs!=0" for="" >{{fareRs}}</label>  
+            </div>
+         </div>
+
+
+        
+    
+
+         <div class="mt-2 ">
+            <!-- <label for="" style="width: 100px ;"><span style="color:red;">*</span>Total KM:</label> -->
+            <mat-form-field class="dropFieldWidth " appearance="outline">
+               <mat-label><span style="color:red;">*</span>Contact Detail</mat-label>
+              <input name="totalKm" disabled="" [value]="userMobileNumber" matInput>
+            </mat-form-field>
+         </div>
+          
+         </div>
+     
+
+     <form [formGroup]="passengerForm">
+
+        <div class="mt-5">
+           
+      <!-- <mat-progress-bar mode="indeterminate" ></mat-progress-bar> -->
+   
+      <table class="table table-bordered ml-5" style="text-align: center;">
+         <thead class="thead-light" >
+            <mat-card>
+
+               <tr>
+                  <th style="width: 100px;">SrNo:</th>
+                  <th style="width: 200px;">First Name</th>
+                  <th style="width: 200px;">Last Name</th>
+                  <th style="width: 150px;">Age</th>
+                  <th style="width: 200px;">Gender</th>
+                  <th style="width: 190px;">Action</th>
+               </tr>
+            </mat-card>
+         </thead>
+         <tbody *ngFor="let p of passengerList; index as sr" >
+            <mat-card>
+               <tr >
+                  <td style="width: 100px;">{{sr+1}}</td>
+                  <td style="width: 200px;">{{p.firstName}}</td>
+                  <td style="width: 200px;">{{p.lastName}}</td>
+                  <td style="width: 150px;">{{p.age}}</td>
+                  <td style="width: 200px;">{{p.gender}}</td>
+                  <td style="width: 190px;">
+                  <button mat-raised-button color="warn" (click)="removeDetail(p)">Remove</button>
+                  </td>
+               </tr>
+            </mat-card>
+         </tbody> 
+
+         <tfoot *ngIf="!seatBooked">
+            <mat-card>
+
+               <tr style=" text-align:center;">
+                  <td style="width: 100px;">
+            </td>
+            <td class="" style="width: 200px;">
+            <mat-form-field style="width: 160px;" >
+            <mat-label >First Name</mat-label>
+            <input type="text" formControlName="firstName" matInput>
+            <div *ngIf="firstNameform">
+            <mat-label *ngIf="passengerForm.get('firstName')?.hasError('required')" class="span_style">Name Required!</mat-label>
+            </div>
+            </mat-form-field>
+            </td>
+            <td class="" style="width: 200px;">
+            <mat-form-field style="width: 160px;" >
+            <mat-label>Last Name</mat-label>
+            <input type="text" formControlName="lastName" matInput>
+            </mat-form-field>
+            <!-- <div *ngIf="lastNameform">
+            <small *ngIf="passengerForm.get('lastName')?.hasError('required')" class="span_style">Name Required!</small>
+            </div> -->
+            </td>
+            <td class="" style="width: 150px;">
+            
+            <mat-form-field style="width: 80px;" class="example-form-field">
+               <mat-label>Age</mat-label>
+            <input formControlName="age" matInput type="number" >
+            </mat-form-field>
+            <div *ngIf="ageform">
+            <small *ngIf="passengerForm.get('age')?.hasError('required')" class="span_style">Enter age!</small>
+            </div>
+            <!-- <div *ngIf="sequenceUnique" style="padding: 0px;">
+            <small class="span_style">Enter sequence unique number!</small>
+            </div> -->
+            </td>
+            <td class="" style="width: 200px;">
+            <mat-form-field style="width: 160px;" >
+               <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender" (selectionChange)="genderSelector($any($event).value)">
+            <mat-option *ngFor="let g of genders" [value]="g.value">{{g.value}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <div *ngIf="genderform">
+               <small *ngIf="passengerForm.get('gender')?.hasError('required')" class="span_style">Select gender</small>
+            </div>
+         </td>
+         <td>
+            <div class="" style="width: 190px;">
+               <button type="submit" mat-raised-button color="primary" (click)="addItem()">Add</button>
+            </div>
+         </td>
+      </tr>
+   </mat-card>
+   </tfoot>
+</table> 
+         
+       
+</div>
+
+</form>
+
+    <div class="mt-5" style="margin-left: 450px;">
+      <button type="submit" mat-raised-button color="primary" routerLink="/home/passengerConfirmation">Next</button>
+      <button type="reset" class="ml-4" mat-raised-button color="warn" routerLink="/home/busBookingDetail">Cancle</button>
+    </div>
+
+   </p-card>
+  
+  </div>
+ 

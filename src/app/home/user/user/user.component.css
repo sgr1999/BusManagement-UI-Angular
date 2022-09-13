@@ -1,0 +1,23 @@
+.grid{
+   height: 100%;
+   width: 100%;
+   padding: 0px;
+   margin: 0px;
+}
+.sideBar{
+   background: black;
+   width: 20%;
+   height: 100%;
+}
+
+.sideContent{
+   background: red;
+   width: 80%;
+   height: 100%;
+}
+
+mat-drawer-container{
+   height: 100%;
+   width: 100%;
+   
+}

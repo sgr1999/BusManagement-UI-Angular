@@ -1,0 +1,108 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Bus Booking Detail</h3>
+     </div>
+ 
+     <form (ngSubmit)="submitBusBookingDetail()" *ngIf="!searched">
+ 
+       
+ 
+        <div class="grid grid1" style="margin-bottom: -15px;">
+
+           <div >
+             <!-- <label for="cityName" class="col-fixed " style="width:140px ;"><span style="color: red;">*</span>Source:</label> -->
+             <mat-form-field class="dropFieldWidth" appearance="outline">
+               <mat-label><span style="color:red;">*</span>From</mat-label>
+               <mat-select name="source" [(ngModel)]="busBookingDetail.source"  (selectionChange)="sourceSelection($any($event).value)">
+                 <mat-option  *ngFor="let source of sourceList1" [value]="source">
+                  {{source}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col ml-4" style="padding-top:0;">
+            <!-- <label class="col-fixed" for="districtName" style="width: 110px;"><span style="color: red;">*</span>Destination:</label> -->
+            <mat-form-field class="dropFieldWidth" appearance="outline">
+              <mat-label><span style="color:red;">*</span>To</mat-label>
+              <mat-select name="destination" [(ngModel)]="busBookingDetail.destination" (selectionChange)="destinationSelection($any($event).value)">
+                <mat-option *ngFor="let destination of destinationList" [value]="destination">{{destination}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+        </div>
+
+        <div class="grid grid1">
+    
+          <mat-form-field class="example-full-width dropFieldWidth" appearance="outline">
+             <mat-label>Choose a date</mat-label>
+             <input name="travelingDate" [(ngModel)]="busBookingDetail.travelingDate" [value]="busBookingDetail.travelingDate" matInput [matDatepicker]="picker">
+             
+             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+             <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+           </mat-form-field>
+
+           <div class="ml-5">
+            <mat-form-field class="dropFieldWidth" appearance="outline">
+               <mat-label><span style="color:red;">*</span>Bus Type</mat-label>
+              <input name="busType" disabled="disabled" [value]="busBookingDetail.busType" matInput>
+            </mat-form-field>
+         </div>
+        </div>
+        
+
+
+       
+       <div class="" style="margin-left: 450px;">
+         <button type="submit" mat-raised-button color="primary">Search Bus</button>
+         <button type="reset" class="ml-4" mat-raised-button color="warn">Cancle</button>
+       </div>
+     </form>
+
+     <div *ngIf="searched" style="margin-left: 52px;">
+       <button mat-raised-button (click)="backButton()"><img style="width: 32px;" src="../../../../assets/back_arrow1.png" alt=""></button>
+     </div>
+
+     <div class="mt-1" style="margin-left: 50px;">
+
+      <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+   
+      <table class="table table-bordered" *ngIf="searched">
+        <thead class="thead-light">
+          <mat-card>
+
+            <tr>
+              <th style="width:70px">SrNo:</th>
+              <th style="width:200px">Time</th>
+              <th style="width:250px">Bus type</th>
+              <th style="width:250px">Route</th>
+              <th style="width:150px">Price</th>
+              <th style="width:150px">Action</th>
+            </tr>
+          </mat-card>
+        </thead>
+        
+        <tbody *ngFor="let bus of busDetail; index as sr">
+          <mat-card>
+
+            <tr style="text-align: center; ">
+              <td style="width:70px">{{sr+1}}</td>
+              <td style="width:200px">{{bus.departureTime}}</td>
+              <td style="width:250px">{{bus.busRouteBusDetailId.busDetailId.busTypeId.busType}}</td>
+              <td style="width:250px">{{bus.source+" To "+bus.destination}}</td>
+              <td style="width:150px">{{bus.fareRs}}</td>
+              <td style="width:150px">
+              <button mat-raised-button color="primary"  (click)="book(bus)">Book</button>
+              </td>
+            </tr>
+          </mat-card>
+        </tbody>
+      
+      </table>   
+    </div>
+    </p-card>
+  </div>
+ 

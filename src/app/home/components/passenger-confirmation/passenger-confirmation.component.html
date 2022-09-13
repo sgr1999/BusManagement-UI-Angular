@@ -1,0 +1,135 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Confirmation</h3>
+     </div>
+ 
+        <div class="" style="margin-bottom: -15px; ">
+
+       
+         <div class="grid">
+
+            <div class="lable_width" >
+             <label for="" >Route:</label>
+            </div>
+            <div>
+               <label for="" style="width: 100px ;">{{busDetail.sourceCity+" To "+busDetail.destinationCity+"  |  "+travlingDate}}</label>
+            </div>
+         </div>
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Bus Type:</label>
+            </div>
+            <div>
+               <label for="" >{{busDetail.busRouteBusDetailId.busDetailId.busTypeId.busType}}</label>
+            </div>
+         </div>
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Boarding Stop:</label>
+            </div>
+            <div>
+               <label for="" >{{busDetail.sourceCity+"  "+busDetail.departureTime}}</label>
+            </div>
+         </div>
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Alighting Stop:</label>
+            </div>
+            <div>
+               <label for="" >{{busDetail.destinationCity+"  "+busDetail.arrivalTime}}</label>
+            </div>
+         </div>
+
+         
+         <div class="grid mt-2">
+            
+            <div class="lable_width">
+               <label for="" >Fare Rs:</label>
+            </div>
+            <div>
+               
+               <label for="" >{{fareRs}}</label>  
+            </div>
+         </div>
+
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Total Seats:</label>
+            </div>
+            <div>
+               <label for="" >{{totalSeat}}</label>
+            </div>
+         </div>
+
+        
+    
+
+         <div class="grid mt-2">
+
+            <div class="lable_width">
+               <label for="" >Contact Details:</label>
+            </div>
+            <div>
+               <label for="" >{{userMobileNumber}}</label>
+            </div>
+         </div>
+          
+         </div>
+     
+
+     <form >
+
+        <div class="mt-5">
+           
+      <!-- <mat-progress-bar mode="indeterminate" ></mat-progress-bar> -->
+   
+      <table class="table table-bordered ml-5" >
+        <thead class="thead-light">
+          <tr>
+            <th >SrNo:</th>
+            <th >First Name</th>
+            <th >Last Name</th>
+            <th >Age</th>
+            <th >Gender</th>
+            
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let p of passengerList ; index as sr">
+           <tr style="text-align: center;">
+              <td>{{sr+1}}</td>
+              <td>{{p.firstName}}</td>
+              <td>{{p.lastName}}</td>
+              <td>{{p.age}}</td>
+              <td>{{p.gender}}</td>
+              
+           </tr>
+        </tbody>
+      
+       
+
+        
+   </table>   
+</div>
+
+</form>
+
+    <div class="mt-5" style="margin-left: 450px;">
+      <button type="submit" mat-raised-button color="primary" routerLink="/home/pay">Pay</button>
+      <button  class="ml-4" mat-raised-button color="warn" routerLink="/home/passengerDetail">Back</button>
+    </div>
+
+   </p-card>
+  
+</div>
+ 

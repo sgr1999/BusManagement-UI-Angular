@@ -1,0 +1,49 @@
+.container{
+   width: 1200px;
+   margin: auto;
+   margin-top: 70px;
+}
+
+.headding{
+   background-color: #a6d5fa73; 
+   height:40px; 
+   margin: -32px -16px 25px -16px;
+   border-radius: 4px;
+   padding: 0;
+}
+
+.dropFieldWidth{
+   width: 340px;
+   font-size: small;
+}
+
+.grid{
+   margin-left: 218px;
+}
+
+table {
+   width: 100%;
+ }
+
+.demo-table {
+   width: 100%;
+ }
+ 
+ .mat-row .mat-cell {
+   border-bottom: 1px solid transparent;
+   border-top: 1px solid transparent;
+   cursor: pointer;
+ }
+ 
+ .mat-row:hover .mat-cell {
+   border-color: currentColor;
+ }
+ 
+ .demo-row-is-clicked {
+   font-weight: bold;
+ }
+ .lable_width{
+   width: 170px;
+   
+}
+

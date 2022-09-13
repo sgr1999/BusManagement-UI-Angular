@@ -1,0 +1,91 @@
+<div class="container grid">
+
+   <div class="submitButton" *ngIf="selectSeat">
+      <button mat-raised-button style="background:rgb(51, 179, 51)" routerLink="/home/passengerDetail" (click)="submitSeat()">Book</button>
+   </div>
+   <div class="submitButton" *ngIf="!selectSeat">
+      <button mat-raised-button (click)="submitSeat()">Book</button>
+   </div>
+
+   <mat-card class="matCard ">
+      <div class="grid" style=" margin-top: -16px;">
+         <h3 style="margin-left: 119px;">Seater Bus</h3>
+       
+            <img class="stairing" src="../../../../assets/stairing_logo.jpeg" alt="">
+         
+       </div>
+ 
+       <hr />
+
+       <div class="grid ml-3">
+            <div *ngFor="let s of noOfSeatsLower ; index as i">
+
+               <div class="demoseat mr-2 mt-4" *ngIf="s.value=='5A' && s.value!=seats[i] && s.value!=bookedSeatsList[i]" style="margin-left: 115px;" (click)="getSeat(s.value)">
+                  <div class="demo1" ></div>
+                  <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="s.value=='5A' && s.value==seats[i] && s.value!=bookedSeatsList[i]" style="background: #00800080 ;margin-left: 115px;" (click)="getSeat(s.value)">
+                  <div class="demo1" ></div>
+                  <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="s.value=='5A' && s.value==bookedSeatsList[i]" style="margin-left: 115px; background: #80808066;">
+                  <div class="demo1" ></div>
+                  <div class="demo2"></div>
+               </div>
+               
+
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value=='8B' || s.value=='9C' || s.value=='12D' || s.value=='19E' 
+               || s.value=='22F' || s.value=='27G' || s.value=='30H' || s.value=='35I') && s.value!=seats[i] && s.value!=bookedSeatsList[i]" style="margin-left: 60px;" (click)="getSeat(s.value)">
+                  <div class="demo1"></div>
+                  <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value=='8B' || s.value=='9C' || s.value=='12D' || s.value=='19E' 
+               || s.value=='22F' || s.value=='27G' || s.value=='30H' || s.value=='35I') && s.value==seats[i] && s.value!=bookedSeatsList[i]" style="background: #00800080; margin-left: 60px;" (click)="getSeat(s.value)">
+                  <div class="demo1"></div>
+                  <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value=='8B' || s.value=='9C' || s.value=='12D' || s.value=='19E' 
+               || s.value=='22F' || s.value=='27G' || s.value=='30H' || s.value=='35I') && s.value==bookedSeatsList[i]" style="background: #80808066; margin-left: 60px;" >
+                  <div class="demo1"></div>
+                  <div class="demo2"></div>
+               </div>
+
+
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value!='8B' && s.value!='9C' && s.value!='12D' && s.value!='19E' && s.value!='22F'
+               && s.value!='27G' && s.value!='30H' && s.value!='35I') && s.value!=seats[i] && s.value!=bookedSeatsList[i]" (click)="getSeat(s.value)">
+                     <div class="demo1"></div>
+                     <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value!='8B' && s.value!='9C' && s.value!='12D' && s.value!='19E' && s.value!='22F'
+               && s.value!='27G' && s.value!='30H' && s.value!='35I') && s.value==seats[i] && s.value!=bookedSeatsList[i]" style="background: #00800080;" (click)="getSeat(s.value)">
+                     <div class="demo1"></div>
+                     <div class="demo2"></div>
+               </div>
+               <div class="demoseat mr-2 mt-4" *ngIf="(s.value!='5A' && s.value!='8B' && s.value!='9C' && s.value!='12D' && s.value!='19E' && s.value!='22F'
+               && s.value!='27G' && s.value!='30H' && s.value!='35I') && s.value==bookedSeatsList[i]" style="background: #80808066;">
+                     <div class="demo1"></div>
+                     <div class="demo2"></div>
+               </div>
+
+
+            </div>
+       </div>
+     
+
+      </mat-card>
+
+      <mat-card class="showSeats" *ngIf="checkSeat">
+            <div *ngFor="let s of bookedSeats">
+      
+              <p class="grid">{{s}}</p> 
+            </div>
+      </mat-card>
+
+      <mat-card class="showSeats1" *ngIf="checkSeat">
+         <div>
+            <h3>Fare {{busDetail.fareRs * bookedSeats.length}}</h3>
+         </div>
+      
+      </mat-card>
+      
+</div>

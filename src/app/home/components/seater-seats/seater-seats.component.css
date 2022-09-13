@@ -1,0 +1,97 @@
+.container{
+   margin-left: 550px;
+   width: 630px;
+}
+
+.matCard{
+   width: 340px;
+   height: 750px;
+   margin: auto;
+   margin-top: 6px;
+   margin-left: 30px;
+}
+
+.seat{
+   border: 1px solid green;
+   width: 25px;
+   height: 20px;
+   position: absolute;
+   margin-top: 11px;
+   
+}
+
+.innerSeat{
+   width: 30px;
+   height: 30px;
+   margin-left: -3px;
+   border: 1px solid red;
+   position: absolute;
+   margin-top: 7px;
+   clip-path: polygon(0 43%, 19% 43%, 32% 74%, 68% 75%, 74% 43%, 100% 42%, 100% 85%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0% 85%);
+}
+
+
+
+.demoseat{
+   /* clip-path: polygon(18% 0, 18% 26%, 0 26%, 0 100%, 20% 100%, 50% 100%, 80% 100%, 100% 100%, 100% 60%, 100% 27%, 81% 26%, 81% 0); */
+   clip-path: polygon(18% 0, 18% 26%, 6% 26%, 0 32%, 0 84%, 0 100%, 100% 100%, 100% 81%, 100% 33%, 94% 26%, 81% 26%, 81% 0);
+   /* background: rgb(227, 191, 191); */
+   width: 47px;
+   border-top-left-radius: 19px;
+   border-top-right-radius: 19px;
+   border-bottom-left-radius: 9px;
+   border-bottom-right-radius: 9px;
+}
+
+.demo1{
+   width: 29px;
+   height: 37px;
+   border: 1px solid green;
+   margin-left: 9px;
+   border-top-left-radius: 7px;
+   border-top-right-radius: 7px;
+   border-bottom-left-radius: 11px;
+   border-bottom-right-radius: 11px;
+}
+
+.demo2{
+   width: 47px;
+   height: 33px;
+   border: 1px solid green;
+  
+   margin-top: -25px;
+   clip-path: polygon(26% 63%, 20% 51%, 19% 0, 0 0, 0 100%, 100% 100%, 100% 0, 81% 0, 81% 51%, 76% 63%, 63% 69%, 39% 69%);
+   
+   border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.stairing{
+   width: 55px;
+   height: 44px;
+   padding: 0px;
+   /* margin: 0px; */
+   margin-left: 48px;
+}
+
+.showSeats{
+   width: 59px;
+   height: auto;
+   background: #ff00007a;
+   margin: 499px 0 206px 15px;
+   color: white;
+}
+
+.showSeats1{
+   width: 105px;
+   height: 56px;
+   background: #b9b3b37a;
+   margin: 499px 0 206px 15px;
+   color: green;
+}
+
+.submitButton{
+   margin-top: 680px;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Bus Booking</h3>
+     </div>
+ 
+     <form >
+ 
+       <div class="grid grid1">
+         
+             <div>
+               <!-- <label class="col-fixed" style="width: 110px;"><span style="color: red;">*</span>State Name:</label> -->
+               <mat-form-field class="dropFieldWidth" appearance="outline">
+                 <mat-label style="font-size: 13.8px;"><span style="color: red;">*</span>Bus Type</mat-label>
+                 <mat-select name="busType" [(ngModel)]="busType" (selectionChange)="busTypeSelector($any($event).value)">
+                   <mat-option *ngFor="let bus of busTypes" [value]="bus.busType">{{bus.busType}}</mat-option>
+                 </mat-select>
+               </mat-form-field>
+             </div>
+         
+        </div>
+ 
+       
+       
+       <div class="mt-3" style="margin-left: 450px;">
+         <button type="submit" mat-raised-button color="primary" routerLink="/home/busBookingDetail" (click)="submitBusBooking()">Next</button>
+         <button type="reset" class="ml-4" mat-raised-button color="warn">Cancle</button>
+       </div>
+     </form>
+     </p-card>
+   </div>
+ 

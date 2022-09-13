@@ -1,0 +1,74 @@
+<div class="container">
+   <p-card>
+     <div class="headding" >
+ 
+       <h3 class="pt-1 ml-3">Bus Route Location</h3>
+     </div>
+ 
+     <form (ngSubmit)="submitBusLocation()">
+ 
+        <div class="grid grid1" style="margin-bottom: -15px;">
+
+           <div >
+             <!-- <label for="cityName" class="col-fixed " style="width:140px ;"><span style="color: red;">*</span>Source:</label> -->
+             <mat-form-field class="dropFieldWidth" appearance="outline">
+               <mat-label><span style="color:red;">*</span>Source</mat-label>
+               <mat-select name="source" [(ngModel)]="busRouteLocation.source" (selectionChange)="sourceSelection($any($event).value)">
+                 <mat-option *ngFor="let source of sources" [value]="source">
+                   {{source}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col ml-4" style="padding-top:0;">
+            <!-- <label class="col-fixed" for="districtName" style="width: 110px;"><span style="color: red;">*</span>Destination:</label> -->
+            <mat-form-field class="dropFieldWidth" appearance="outline">
+              <mat-label><span style="color:red;">*</span>Destination</mat-label>
+              <mat-select name="destination" [(ngModel)]="busRouteLocation.destination" (selectionChange)="destinationSelection($any($event).value)">
+                <mat-option *ngFor="let destination of destinations" [value]="destination">{{destination}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+        </div>
+
+       
+       <div class="mt-3" style="margin-left: 450px;">
+         <button type="submit" mat-raised-button color="primary">Search</button>
+         <button type="reset" class="ml-4" mat-raised-button color="warn">Cancle</button>
+       </div>
+     </form>
+
+     <div class="mt-3">
+
+        
+      <table class="table table-bordered mt-3" *ngIf="searched">
+        <thead class="thead-light">
+            <tr>
+                <th>Sr No.</th>
+                <th>Time</th>
+                <th>Bus Type</th>
+                <th>Route</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let busRouteBusDetails of busRouteBusDetails ; index as sr">
+            <tr style="text-align: center">
+                <td style="padding-top:17px">{{sr+1}}</td>
+                <td style="padding-top:17px">{{busRouteBusDetails.busDepartureTime}}</td>
+                <td style="padding-top:17px">{{busRouteBusDetails.busDetailId.busTypeId.busType}}</td>
+                <td style="padding-top:17px">{{"From "+busRouteLocation.source+" To "+busRouteLocation.destination}}</td>
+                <td style="padding-top:17px">
+                  <button mat-raised-button color="primary" routerLink="/home/busRouteLocationDetail" (click)="addBusDetail(busRouteBusDetails)">Add</button>
+                </td>
+            </tr>
+        </tbody>
+
+       
+    </table>
+       
+</div>
+</p-card>
+   </div>
+ 

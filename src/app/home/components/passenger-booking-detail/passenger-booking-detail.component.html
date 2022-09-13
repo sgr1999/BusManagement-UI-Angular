@@ -1,0 +1,89 @@
+
+
+<div class="container"> 
+
+   <p-card >
+
+
+      <h3 style="text-align: center;">Booking Details..!!</h3>
+
+      
+    
+      <mat-card class="detailCard">
+               
+
+               <div style="padding: 0px;">
+                  <label for="" style="font-size: 19px;"><img src="../../../../assets/bus.png" alt="" class="busIcon">{{busDetail.sourceCity}}</label>
+                  <tr></tr>
+                  <label for="">|</label>
+                  <tr></tr>
+                  <label for="">|</label>
+                  <tr></tr>
+                  <label for="">|</label>
+               </div>
+               <div>
+                  <label for="" style="font-size: 19px;"><img src="../../../../assets/bus-stop (3).png" alt="" class="busIcon">{{busDetail.destinationCity}}</label>
+               </div>
+
+               <hr>
+
+               <div class="mt-3">
+
+                  <label for="">{{busDetail.departureTime}} PM - {{busDetail.arrivalTime}} AM</label>
+                 
+               </div>
+
+               <div class="mt-1">
+                  <label style="font-size: 15px;" for="">Duration: 10:10</label>
+               </div>
+
+               <div class="mt-2">
+                  <label  for="">{{bookingDetail.travlingDate}}</label>
+               </div>
+
+               <div class="mt-2">
+                  <label  for="">{{busDetail.busRouteBusDetailId.busDetailId.busTypeId.busType}}</label>
+               </div>
+
+               <div  class="mt-3 " style="margin-left: 175px;">
+
+                  <button style="background: #eb6163;" mat-button (click)="seeDetails()" >SEE DETAILS <img src="../../../../assets/up-and-down.png" alt="" style="width: 15px;"></button>
+               </div>
+            
+            </mat-card>
+
+            <div *ngIf="seeDetailToggle">
+
+               <mat-card  *ngFor="let p of passengerList" >
+                  
+               <div class="detailCard1">
+                  <label style="color: rgb(0 0 0 / 61%);" for="">Seat No</label>
+                  <label for="" style="margin-left: 20px;">{{p.seatNo}}</label>
+                  
+               </div>
+               
+               <div class="detailCard1 mt-2">
+                  <label for="" style="margin-left: 75px; ">{{p.firstName +" "+p.lastName}}</label>
+               </div>
+               
+               <hr class="striped-border" >
+            </mat-card>
+
+            <mat-card >
+
+               <div class="detailCard1">
+                  <label style="color: rgb(0 0 0 / 61%);" for="">Fare</label>
+                  <label for="" style="margin-left: 43px;">{{bookingDetail.fareRs}}</label>
+                  
+               </div>
+            </mat-card>
+         </div>
+
+           
+      
+      <div style="text-align: center;" class="mt-5">
+
+         <button  mat-raised-button color="primary" routerLink="/home/busBooking">Ok</button>
+      </div>
+   </p-card>
+</div>

@@ -1,0 +1,42 @@
+.container{
+   width: 1200px;
+   margin: auto;
+   margin-top: 20px;
+}
+
+.headding{
+   background-color: #a6d5fa73; 
+   height:40px; 
+   margin: -32px -16px 10px -16px;
+   border-radius: 4px;
+   padding: 0;
+}
+
+.dropFieldWidth{
+   width: 340px;
+   font-size: small;
+}
+
+
+.grid1{
+   margin-left: 225px;
+}
+
+
+.my-custom-snackbar {
+   margin: 0 !important;
+   position: absolute;
+   right: 25px;
+   top: 200px;
+ }
+
+ .textAreaDiv{
+    margin-left: 85px;
+ }
+
+ .textArea{
+    width: 500px;
+ }
+
+
+
