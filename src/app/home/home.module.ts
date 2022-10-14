@@ -61,6 +61,8 @@ import { UserComponent } from './user/user/user.component';
 import { UserSideBarComponent } from './user/user-side-bar/user-side-bar.component';
 import { UserNavBarComponent } from './user/user-nav-bar/user-nav-bar.component';
 import { BusTypesComponent } from './user/bus-types/bus-types.component';
+import { Navbar1Component } from './components/navbar1/navbar1.component';
+import { Sidebar1Component } from './components/sidebar1/sidebar1.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { BusTypesComponent } from './user/bus-types/bus-types.component';
     UserComponent,
     UserSideBarComponent,
     UserNavBarComponent,
-    BusTypesComponent
+    BusTypesComponent,
+    Navbar1Component,
+    Sidebar1Component
 
   ],
   imports: [

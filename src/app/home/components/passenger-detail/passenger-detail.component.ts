@@ -2,7 +2,7 @@ import { SleeperSeatsService } from './../../../services/sleeperSeats/sleeper-se
 import { LoginService } from './../../../services/login/login.service';
 import { PassengerDetailService } from './../../../services/passengerDetail/passenger-detail.service';
 import { BusBookingDetailService } from './../../../services/busBookingDetail/bus-booking-detail.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { BusRouteLocationDetail } from '../bus-route-location-detail/bus-route-location-detail.component';
 
@@ -54,14 +54,15 @@ export class PassengerDetailComponent implements OnInit {
   genderform:boolean=false
   seatBooked:boolean=false
   selectSeats=false
-
+  show=false
   bookedSeats:any
-
+  addmore!: FormGroup;
 
   constructor(private fb:FormBuilder, private busBookingDetailService:BusBookingDetailService, 
     private PassengerDetailService:PassengerDetailService, private loginService:LoginService, private sleeperSeatService:SleeperSeatsService) { 
 
     this.passengerList=[]
+    
 
     this.bookedSeats=[]
 
@@ -73,7 +74,12 @@ export class PassengerDetailComponent implements OnInit {
       seatNo:''
     })
 
+   
+    
+
   }
+
+  
   
   ngOnInit(): void {
 
@@ -84,28 +90,72 @@ export class PassengerDetailComponent implements OnInit {
     console.log("busDetail "+this.busDetail)
     this.bookedSeats = this.sleeperSeatService.getSleeperSeats();
     this.totalSeat = this.bookedSeats.length
-    this.seatSelector();
+    // this.seatSelector();
 
     console.log("bookedSeats "+this.bookedSeats)
-    // this.busBookingDetailService.setBookingDate(this.travelingDate)
+    this.busBookingDetailService.setBookingDate(this.travelingDate)
     if (this.busDetail==null) {
-      window.location.href='/home/busBooking'
+      // window.location.href='/home/busBooking'
+    }
+
+   
+    this.addmore= this.fb.group({
+      itemRows: this.fb.array([this.initItemRows(this.bookedSeats[0])])
+    })
+ 
+
+    for (let index = 0; this.bookedSeats.length-1 > index; index++) {
+    
+      this.formArr.push(this.initItemRows(this.bookedSeats[index+1]))
+      this.passengerList.push(this.initItemRows(this.bookedSeats[index]))
     }
     
   }
 
+  get formArr(){
+    return this.addmore.get('itemRows') as FormArray;
+  }
+
+    initItemRows(seat:any){
+      return this.fb.group({
+        firstName:['',Validators.compose([Validators.required, Validators.min(3)])],
+        lastName:['',Validators.compose([Validators.required, Validators.min(3)])],
+        age:['',Validators.compose([Validators.required])],
+        gender:['',Validators.compose([Validators.required])],
+        seatNo:seat
+      })
+    }
+
+    addNewRow(){
+      this.formArr.push(this.initItemRows("f"))
+    }
+
+    submit(){
+      console.log("add more "+this.addmore.get('itemRows')?.value)
+      this.passengerList=this.addmore.get('itemRows')?.value
+      
+     console.log(this.passengerList)
+
+
+    this.PassengerDetailService.setBusRouteLocationDetail(this.busDetail)
+    this.PassengerDetailService.setPassengerList(this.passengerList)
+    this.PassengerDetailService.setFareRs(this.fareRs)
+    this.PassengerDetailService.setTotalSeat(this.totalSeat)
+
+     this.PassengerDetailService.setPassengerList(this.passengerList)
+    }
+
   count:number=1;
   seatSequence:number=0;
-
   addItem(){
-    console.log(this.passengerForm.value)
+   
 
     if (this.totalSeat==null) {
       this.selectSeats=true
       return;
     }
 
-    if (this.totalSeat==this.count) {
+    if (this.totalSeat==this.passengerList.length+1) {
       this.seatBooked=true;
     }
     if (this.passengerForm.get('firstName')?.value=='') {
@@ -127,11 +177,11 @@ export class PassengerDetailComponent implements OnInit {
     
     this.seatNo = this.bookedSeats[this.seatSequence]
     console.log("seatNo "+this.seatNo)
-    this.passengerForm.get('seatNo')?.setValue(this.seatNo);
+    if (this.seatNo!=null || this.seatNo!='' || this.seatNo!=undefined) {
+      this.passengerForm.get('seatNo')?.setValue(this.seatNo);
+    }
    
     this.passengerList.push(this.passengerForm.value)  
-    console.log(this.passengerList.value)
-    console.log("ok")
 
     this.seatSequence++
     this.count =this.count+1;
@@ -142,33 +192,46 @@ export class PassengerDetailComponent implements OnInit {
     this.PassengerDetailService.setTotalSeat(this.totalSeat)
 
     console.log("count "+this.count)
+    console.log("passengerList "+this.passengerList)
   }
 
 
   removeDetail(detail:any){
     this.passengerList.forEach((value:any,index:any)=>{
       if (value==detail) {
+
+        this.seatSequence=index
+        console.log("seatNo "+this.passengerList[index])
+        
         this.passengerList.splice(index,1);
         this.count =this.count-1;
         this.seatBooked=false;
-        
+     
+        console.log("value "+value)
+        if (this.passengerForm.value!=value) {
+          
+          this.passengerForm.setValue(value)
+        }
+      
+        console.log("index "+index)
+        console.log(this.passengerForm.value)
       }
     })
   }
 
   genderSelector(event:any){
     this.gender=event
-    console.log(this.gender)
+  
   }
 
-  seatSelector(){
-    this.selectSeats=false
-    this.seatBooked=false;
-    this.fareRs=this.busDetail.fareRs*this.totalSeat;
+  // seatSelector(){
+  //   this.selectSeats=false
+  //   this.seatBooked=false;
+  //   // this.fareRs=this.busDetail.fareRs*this.totalSeat;
     
-    if (this.totalSeat<this.count) {
-      this.passengerList=['']
-      this.count=0
-    }
-  }
+  //   if (this.totalSeat<this.count) {
+  //     this.passengerList=['']
+  //     this.count=0
+  //   }
+  // }
 }

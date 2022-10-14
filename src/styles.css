@@ -2,3 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.matMenuInside{
+   width: 250px !important;
+   margin-left: 27px;
+}
+.matMenuInside1{
+   width: 240px !important;
+  margin-left: 5px;
+}

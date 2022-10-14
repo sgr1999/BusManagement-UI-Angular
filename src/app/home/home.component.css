@@ -16,3 +16,20 @@ mat-drawer{
 mat-drawer-container{
     height: 100%;
 }
+
+
+/* ------------------------------------------------- */
+
+mat-sidenav-container{
+    height: 100%;
+    width: 100%;
+}
+mat-sidenav{
+  background: white;
+  height: 100%;
+  width: 18%;
+}
+
+mat-sidenav-content{
+    background: #f3f6f9b0;
+}

@@ -1,6 +1,6 @@
 .container{
-   margin-left: 400px;
-   width: 834px;
+   margin-left: 220px;
+   width: 1073px;
 }
 
 .matCard{
@@ -44,10 +44,20 @@
    width: 25px;
    height: 8px;
    border: 1px solid rgb(155, 59, 59);
-   margin-top: 65px;
-    margin-left: 7px;
-    display: inline-block;
-    border-radius: 10px;
+   margin-top: 61px;
+   margin-left: 6.5px;
+   display: inline-block;
+   border-radius: 10px;
+}
+
+.seatPillow1{
+   width: 25px;
+   height: 8px;
+   border: 1px solid rgb(155, 59, 59);
+   margin-top: 24px;
+   margin-left: 6.5px;
+   display: inline-block;
+   border-radius: 10px;
 }
 
 .showSeats{
@@ -64,6 +74,16 @@
    background: #b9b3b37a;
    margin: 494px 0 206px 15px;
    color: green;
+}
+
+.showDetail{
+   background: #ed8081;
+   width: 238px;
+   height:117px;
+   margin: 20px 0 0 0;
+   text-align: center;
+   color: white;
+   padding-top: 29px;
 }
 
 .submitButton{

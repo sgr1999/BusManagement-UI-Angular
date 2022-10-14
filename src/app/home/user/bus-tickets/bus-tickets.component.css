@@ -1,0 +1,27 @@
+.border{
+   height: 37px;
+   background: #000000a3;
+}
+.container{
+   background: #d84f57;
+   height: 500px;
+}
+
+.sourceClass{
+  
+   margin-left: 554px;
+   padding-top: 158px;
+}
+
+.matFormField{
+   background-color: white;
+   height: 59px;
+   border-radius: 5px
+;
+}
+
+.inputField{
+   background: white;
+   height: 44px;
+    width: 300px;
+}

@@ -15,7 +15,7 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   generateToken(credentials:any){
-    return this.http.post(`${this.url}/user/token`,credentials)
+    return this.http.post(`${this.url}/user/token/`,credentials)
   }
 
   loginUser(token:any,firstName:string,lastName:string,mobileNumber:string){

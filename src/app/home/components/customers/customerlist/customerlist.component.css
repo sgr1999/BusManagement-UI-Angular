@@ -1,6 +1,12 @@
 .listcontainer{
-    width: 100%;
-   margin-left: 4%;
+    width: 90%;
+   margin-left: 5%;
     color: blue;
 }
 
+.searchField{
+    height: 38px;
+    width: 250px;
+    border-radius: 5px;
+    margin-left: 5px;
+}

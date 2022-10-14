@@ -62,11 +62,11 @@
        </div>
      </form>
 
-     <div *ngIf="searched" style="margin-left: 52px;">
+     <div *ngIf="searched" style="margin-left: 26px;">
        <button mat-raised-button (click)="backButton()"><img style="width: 32px;" src="../../../../assets/back_arrow1.png" alt=""></button>
      </div>
 
-     <div class="mt-1" style="margin-left: 50px;">
+     <div class="mt-1" style="margin-left: 24px;">
 
       <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
    
@@ -76,11 +76,10 @@
 
             <tr>
               <th style="width:70px">SrNo:</th>
-              <th style="width:200px">Time</th>
-              <th style="width:250px">Bus type</th>
-              <th style="width:250px">Route</th>
-              <th style="width:150px">Price</th>
-              <th style="width:150px">Action</th>
+              <th style="width:250px">Time</th>
+              <th style="width:275px">Bus type</th>
+              <th style="width:295px">Route</th>
+              <th style="width:181.5px">Action</th>
             </tr>
           </mat-card>
         </thead>
@@ -90,11 +89,10 @@
 
             <tr style="text-align: center; ">
               <td style="width:70px">{{sr+1}}</td>
-              <td style="width:200px">{{bus.departureTime}}</td>
-              <td style="width:250px">{{bus.busRouteBusDetailId.busDetailId.busTypeId.busType}}</td>
-              <td style="width:250px">{{bus.source+" To "+bus.destination}}</td>
-              <td style="width:150px">{{bus.fareRs}}</td>
-              <td style="width:150px">
+              <td style="width:250px">{{bus.departureTime}}</td>
+              <td style="width:275px">{{bus.busRouteBusDetailId.busDetailId.busTypeId.busType}}</td>
+              <td style="width:295px">{{bus.source+" To "+bus.destination}}</td>
+              <td style="width:181.5px">
               <button mat-raised-button color="primary"  (click)="book(bus)">Book</button>
               </td>
             </tr>

@@ -35,12 +35,14 @@ export class PassengerConfirmationComponent implements OnInit {
     this.travlingDate = this.busBookingDetailService.getBookingDate();
     
     if (this.busDetail==null) {
-      window.location.href='/home/busBooking'
+      // window.location.href='/home/busBooking'
     }
     console.log(this.busDetail)
     console.log(this.passengerList)
     console.log(this.fareRs)
     console.log(this.totalSeat)
+
+    
   }
 
 }

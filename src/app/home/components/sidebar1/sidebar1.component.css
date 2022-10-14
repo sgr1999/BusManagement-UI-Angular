@@ -1,0 +1,89 @@
+
+.logo{
+   text-align: center;
+  
+   
+}
+
+.logo img {
+   width: 150px;
+   height: 75px
+   }
+
+   p-panelMenu{
+       margin-left: 47px;
+       
+       display: flex;
+   }    
+
+   mat-nav-list li{
+       margin-left: 15px;
+       width: 90.5%;
+       border-radius: 20px;
+   }
+
+   mat-nav-list h2{
+       font-size: 15px;
+       margin-left: 60px;
+   }
+
+.mat-icon{
+   vertical-align: center;
+   margin-right: 1rem;
+}
+
+.mat-divider{
+   border-top-width: 2px;
+   border-color: white;
+}
+
+.mat-list-item{
+   color: #000000ab !important;
+   font-size: 0.8rem;
+   height: 48px !important;
+   margin-bottom: 4px;
+  border-radius: 7px;
+}
+
+.mat-list-item::ng-deep.mat-list-item-content{
+   
+   border-radius: 5px;
+   margin: 0 8px;
+  
+}
+.mat-list-item::ng-deep.mat-list-item-content:hover{
+   background: #9198aa !important;
+   color: black;
+   font-style:bold;
+}
+
+
+
+.list-item-active{
+  background: #254154 !important;
+}
+
+.list-item-active::bg-deep.mat-list-item-content{
+   background: #181a20;
+}
+
+.list-item-active::bg-deep.mat-list-item-content:hover{
+   /* background: #2c3344 !important; */
+   background: #101520 !important;
+}
+
+.mat-subheader{
+   color: #f2f5f7 !important;
+   font-size: 0.6rem;
+   font-weight: 100;
+   letter-spacing: 1px;
+}
+
+li{
+   list-style: none;
+}
+
+
+.matIconStyle_arrow_down{
+  margin-left: 125px;
+}

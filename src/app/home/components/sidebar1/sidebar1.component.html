@@ -1,0 +1,69 @@
+
+
+
+<mat-nav-list>
+    <div class="logo">
+        <img src="../../../../assets/management_logo.png" alt="Company Logo"/>
+    </div>
+    <h2 matSubheader class="">BUS-MANAGEMENT</h2>
+
+    <mat-divider></mat-divider>
+    
+    <!-- <p-panelMenu class="panel mt-5" [model]="items" [style]="{'width':'300px'}"></p-panelMenu> -->
+   
+    <li>
+
+        <button mat-list-item routerLink="/home"> <mat-icon>home</mat-icon>Home</button>
+    </li>
+    <li>
+
+        <button mat-list-item routerLink="/home/busBooking"><mat-icon>add_circle_outline</mat-icon>Book Bus</button>
+    </li>
+    <li >
+        <button mat-list-item [matMenuTriggerFor]="playlistMenu"> 
+            <mat-icon>perm_identity</mat-icon>
+            Customer
+        <mat-icon class="matIconStyle_arrow_down">keyboard_arrow_down</mat-icon>
+        </button>
+
+        <mat-menu class="matMenuInside" #playlistMenu="matMenu">
+            <div class="matMenuInside1">
+                <button  mat-menu-item  routerLink="/home/addCustomer" >
+                    <mat-icon>perm_identity</mat-icon>
+                    Add Customer
+                </button>
+                <button  mat-menu-item   routerLink="/home/customerList">
+                    <mat-icon>view_list</mat-icon>
+                    View Customer
+                </button>
+            </div>
+        </mat-menu>
+    </li>
+    
+    <li>
+        <button mat-list-item routerLink="/home/addCity"><mat-icon>source</mat-icon>City Information</button>
+    </li>
+
+    <li>
+        <button mat-list-item routerLink="/home/sourceDestination"><mat-icon>wysiwyg</mat-icon>Source Destination</button>
+    </li>
+
+    <li>
+        <button mat-list-item routerLink="/home/busDepo"><mat-icon>backup_table</mat-icon> Bus Depo</button>
+    </li>
+    <li>
+        <button mat-list-item routerLink="/home/busDepoRoute"><mat-icon>backup_table</mat-icon>Bus Depo Route</button>
+    </li>
+    <li>
+        <button mat-list-item routerLink="/home/busType"><mat-icon>art_track</mat-icon>Bus Type</button>
+    </li>
+    <li>
+        <button mat-list-item routerLink="/home/busDetail"><mat-icon>list_alt</mat-icon>Bus Detail</button>
+    </li>
+    <li>
+        <button mat-list-item routerLink="/home/busRouteBusDetail"><mat-icon>format_list_bulleted</mat-icon>Bus Route Bus Detail</button>
+    </li>
+    <li>
+        <button mat-list-item routerLink="/home/busRouteLocation"><mat-icon>add_to_queue</mat-icon>Bus Route Location</button>
+    </li>
+</mat-nav-list>

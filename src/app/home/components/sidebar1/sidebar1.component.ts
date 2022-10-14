@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-sidebar1',
+  templateUrl: './sidebar1.component.html',
+  styleUrls: ['./sidebar1.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class Sidebar1Component implements OnInit {
 
   items:MenuItem[]=[];
   constructor() { }
@@ -202,4 +202,3 @@ export class SidebarComponent implements OnInit {
   }
 
 }
- 

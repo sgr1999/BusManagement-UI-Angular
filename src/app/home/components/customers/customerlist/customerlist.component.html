@@ -7,14 +7,14 @@
     <ng-template pTemplate="caption">
         <div class="table-header">
             List of Customers
-            <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Search" />
+            <span class="searchField p-input-icon-left">
+                <i class="pi pi-search ml-1"></i>
+                <input class="searchField" style="padding-left: 30px;" pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Search" />
             </span>
         </div>
     </ng-template>
 
-                <ng-template pTemplate="header">
+                <ng-template pTemplate="header" style="width: 90%;">
                     <tr>
                         <!-- <th style="width: 3rem"></th> -->
                         <th pSortableColumn="customerId">Id <p-sortIcon field="customerId"></p-sortIcon></th>
@@ -24,7 +24,7 @@
                         <th pSortableColumn="gender">Gender <p-sortIcon field="gender"></p-sortIcon></th>
                         <th pSortableColumn="age">Age <p-sortIcon field="age"></p-sortIcon></th>
                         <th pSortableColumn="action" style="padding-left: 44px;">Action <p-sortIcon field="action"></p-sortIcon></th>
-                        <th style="width: 8rem"></th>
+                        
                     </tr>
                 
                 </ng-template>

@@ -1,0 +1,22 @@
+mat-toolbar{
+   background:#d84f57;
+   color: white;
+}
+
+.busbtn{
+   margin-left: 400px;
+}
+
+.busbtn img{
+   color: #b63e43;
+   width: 80px;
+   background-image: repeating-radial-gradient();
+}
+
+.cancelTicket{
+   margin-left: 700px;
+}
+
+.userbtn{
+ 
+}
